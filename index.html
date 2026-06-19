@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>华体会 · 再次遇见</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fbfbf9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", system-ui, sans-serif;
+      line-height: 1.7;
+      color: #2c2c2c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1.2rem;
+    }
+
+    .page-wrap {
+      max-width: 720px;
+      width: 100%;
+    }
+
+    /* 主视觉区 — 极简标题与副线 */
+    .hero {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #e8e7e4;
+      padding-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 450;
+      letter-spacing: -0.02em;
+      color: #1e1e1e;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero .sub {
+      font-size: 0.95rem;
+      color: #7d7b78;
+      border-left: 3px solid #c0b7a8;
+      padding-left: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    /* 信息卡片容器 — 三列弹性网格 */
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 3rem 0 3.2rem;
+    }
+
+    .card-item {
+      flex: 1 1 200px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.5rem 1.3rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.01);
+      transition: box-shadow 0.2s;
+    }
+
+    .card-item:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    .card-item .icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-item h3 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      color: #1f1f1f;
+    }
+
+    .card-item p {
+      font-size: 0.9rem;
+      color: #4a4947;
+      margin-bottom: 0.3rem;
+    }
+
+    /* 适合人群 — 紧凑标签列表 */
+    .audience-box {
+      background: #f5f3f0;
+      border-radius: 24px;
+      padding: 1.6rem 1.8rem;
+      margin: 2.8rem 0 2.5rem;
+    }
+
+    .audience-box h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #4d4b48;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.8rem;
+    }
+
+    .tag-list span {
+      background: #ffffff;
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      color: #2e2c29;
+      border: 1px solid #ddd9d3;
+    }
+
+    /* 自然链接段落 + 提示摘要 */
+    .note-section {
+      margin: 2.8rem 0 3rem;
+      border-top: 1px dashed #d6d2cc;
+      padding-top: 2rem;
+    }
+
+    .note-section p {
+      font-size: 0.95rem;
+      color: #3d3b38;
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-summary {
+      background: #f8f7f5;
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.8rem 0 2.2rem;
+      font-size: 0.9rem;
+    }
+
+    .faq-summary details {
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-summary summary {
+      font-weight: 470;
+      cursor: pointer;
+      color: #2f2d2a;
+      padding: 0.2rem 0;
+    }
+
+    .faq-summary p {
+      margin: 0.5rem 0 0 1rem;
+      color: #53514d;
+    }
+
+    /* 链接样式 */
+    a {
+      color: #2d5f6b;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: #2d5f6b;
+    }
+
+    .footer-note {
+      margin-top: 4rem;
+      font-size: 0.8rem;
+      color: #8a8782;
+      border-top: 1px solid #e8e7e4;
+      padding-top: 1.8rem;
+      text-align: center;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.8rem 0.9rem;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .card-item {
+        flex: 1 1 100%;
+      }
+      .audience-box {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- hero 主视觉 -->
+  <div class="hero">
+    <h1>华体会 · 再次遇见</h1>
+    <div class="sub">整理过的浏览线索 · 值得收藏与回访</div>
+  </div>
+
+  <!-- 用途卡片：三个信息块 -->
+  <div class="card-grid">
+    <div class="card-item">
+      <div class="icon">📋</div>
+      <h3>快速回顾</h3>
+      <p>上次看到的页面、功能入口、活动摘要 — 回来就能接着看，不重复翻找。</p>
+    </div>
+    <div class="card-item">
+      <div class="icon">📌</div>
+      <h3>常驻收藏</h3>
+      <p>把站点加入书签栏，下次直接打开。不必每次重新搜索，节省一点时间。</p>
+    </div>
+    <div class="card-item">
+      <div class="icon">🔁</div>
+      <h3>持续关注</h3>
+      <p>不定期更新的内容方向、界面调整、新栏目 — 适合偶尔回来看一眼的节奏。</p>
+    </div>
+  </div>
+
+  <!-- 适合人群 标签列表 -->
+  <div class="audience-box">
+    <h2>常回来看看的人</h2>
+    <div class="tag-list">
+      <span>偶尔浏览</span>
+      <span>信息回顾者</span>
+      <span>收藏型用户</span>
+      <span>多设备切换</span>
+      <span>不喜欢重复搜索</span>
+      <span>偏爱简洁界面</span>
+    </div>
+  </div>
+
+  <!-- 自然链接段 + FAQ摘要 -->
+  <div class="note-section">
+    <p>
+      如果你之前来过这里，大概记得它的风格和内容方向。把 <a href="https://zhm-hth.com.cn">华体会</a> 加进书签，下次想再读读页面上的说明、浏览某些板块时，就不用从零开始找。书签栏里留一个位置，其实挺方便的。
+    </p>
+    <p>
+      即使间隔一段时间再回来，整体结构还是熟悉的。页面没有频繁跳转或强制引导，安安静静放在那里，适合自己控制浏览节奏。
+    </p>
+
+    <!-- FAQ 摘要 -> 收藏与再次访问的常见问题 -->
+    <div class="faq-summary">
+      <details>
+        <summary>为什么值得再次访问？</summary>
+        <p>部分页面会随着时间补充细节或调整布局，再次打开可能看到更清晰的版本。而且收藏后不用每次重新输入地址。</p>
+      </details>
+      <details>
+        <summary>怎样保持关注又不被打扰？</summary>
+        <p>把它放在书签文件夹里，隔一两周点开一次即可。没有推送通知，没有弹窗，适合安静浏览。</p>
+      </details>
+      <details>
+        <summary>换了设备还能找回吗？</summary>
+        <p>同步浏览器书签，或者记住域名。这里提供的就是一个稳定可访问的页面，不需要额外注册。</p>
+      </details>
+    </div>
+
+    <p style="margin-top: 1.2rem;">
+      如果你打算以后再来，现在就可以收藏它。下次打开浏览器，输入几个字母或者点一下书签，直接回到 <a href="https://zhm-hth.com.cn">华体会</a> 的首页。
+    </p>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer-note">
+    一个整理过的信息页面 · 适合回访与收藏
+  </div>
+
+</div>
+</body>
+</html>

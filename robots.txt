@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mari232eolva.github.io/zhm-hth-com-cn-3/sitemap.xml
