@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>信息索引 · ng28 资料整理</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f7f4ef;
+      font-family: system-ui, "Noto Serif SC", "Source Han Serif SC", "Times New Roman", serif;
+      color: #2e2b27;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 — 轻量、克制 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 0 1.6rem;
+      border-bottom: 1px solid #d6cfc4;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.2rem;
+    }
+    .site-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: #3d362f;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #5f5348;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+    .nav-links a:hover {
+      border-bottom-color: #9a897a;
+    }
+
+    /* 核心介绍区 — 文章排版感 */
+    .hero-section {
+      margin: 2.8rem 0 2.4rem;
+    }
+    .hero-section h1 {
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+      color: #2b2622;
+      margin-bottom: 1.2rem;
+    }
+    .hero-section p {
+      font-size: 1rem;
+      max-width: 70ch;
+      color: #4c443c;
+      margin-bottom: 1rem;
+    }
+    .intro-link-line {
+      background: #ece7df;
+      padding: 0.5rem 1rem;
+      border-left: 4px solid #b3a08b;
+      display: inline-block;
+      font-size: 0.95rem;
+      margin-top: 0.2rem;
+    }
+    .intro-link-line a {
+      color: #3b3229;
+      text-decoration: underline;
+      text-decoration-color: #b3a08b;
+      text-underline-offset: 3px;
+    }
+    .intro-link-line a:hover {
+      background: #d9cec0;
+    }
+
+    /* 三个场景模块 — 卡片式 */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin: 2.8rem 0 2.2rem;
+    }
+    .module-card {
+      background: #fffffffa;
+      border-radius: 0;
+      padding: 1.6rem 1.4rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 2px 8px rgba(90, 70, 50, 0.04);
+      border: 1px solid #e2d9cf;
+      transition: box-shadow 0.2s;
+    }
+    .module-card:hover {
+      box-shadow: 0 2px 10px rgba(90, 70, 50, 0.08);
+    }
+    .module-card h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #3d362f;
+      border-bottom: 1px dashed #dad1c4;
+      padding-bottom: 0.3rem;
+    }
+    .module-card p {
+      font-size: 0.92rem;
+      color: #4f463d;
+      margin-bottom: 0.6rem;
+    }
+    .module-card .meta-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      background: #ebe4db;
+      padding: 0.1rem 0.6rem;
+      color: #5a4e42;
+      letter-spacing: 0.03em;
+    }
+
+    /* 常见说明 / FAQ 摘要 — 引用块风格 */
+    .faq-block {
+      margin: 2.4rem 0 2rem;
+      background: #f0ebe3;
+      padding: 1.6rem 1.8rem;
+      border-left: 5px solid #b3a08b;
+    }
+    .faq-block h4 {
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      color: #3b3229;
+      margin-bottom: 0.8rem;
+    }
+    .faq-item {
+      margin-bottom: 0.75rem;
+    }
+    .faq-item strong {
+      font-weight: 500;
+      color: #2f2822;
+    }
+    .faq-item span {
+      color: #4a4138;
+    }
+    .faq-item + .faq-item {
+      border-top: 1px dotted #d2c8bb;
+      padding-top: 0.7rem;
+    }
+
+    /* 提示框 */
+    .note-box {
+      background: #ece7df;
+      padding: 1rem 1.5rem;
+      border: 1px solid #d4c9bc;
+      font-size: 0.9rem;
+      color: #3f3933;
+      margin: 1.8rem 0 1.2rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: baseline;
+    }
+    .note-box::before {
+      content: "ⓘ";
+      font-size: 1.1rem;
+      opacity: 0.7;
+      margin-right: 0.4rem;
+    }
+
+    /* 页脚 */
+    .footer {
+      border-top: 1px solid #d6cfc4;
+      padding: 1.5rem 0 0.5rem;
+      margin-top: 2.2rem;
+      font-size: 0.8rem;
+      color: #6a6056;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body { padding: 1.2rem 0.8rem; }
+      .hero-section h1 { font-size: 1.6rem; }
+      .top-nav { flex-direction: column; align-items: flex-start; }
+      .nav-links { gap: 1rem; }
+      .faq-block { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+      <div class="site-title">资料索引 · 信息整理</div>
+      <div class="nav-links">
+        <a href="#intro">介绍</a>
+        <a href="#scenes">场景</a>
+        <a href="#faq">说明</a>
+      </div>
+    </nav>
+
+    <!-- 核心介绍区 -->
+    <section class="hero-section" id="intro">
+      <h1>从资料整理的角度看 <span style="font-weight:400;">ng28</span> 的信息脉络</h1>
+      <p>
+        对于较为分散的信息来源，一份结构化的索引往往比直接浏览更有效率。这里尝试将围绕 <a href="https://zhweb--ng28.com" style="color:#3b3229;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#b3a08b;">ng28</a> 的常见资料线索进行分类与简述，不试图涵盖全部，只希望为检索提供一些轻量引导。
+      </p>
+      <div class="intro-link-line">
+        相关链接 · <a href="https://zhweb--ng28.com">ng28</a> · 内容聚合与原始页面
+      </div>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <section id="scenes" style="margin-top: 1rem;">
+      <h2 style="font-weight:400;font-size:1.3rem;color:#3d362f;border-bottom:1px dashed #dad1c4;padding-bottom:0.3rem;margin-bottom:1.6rem;">常见整理场景</h2>
+      <div class="modules-grid">
+        <div class="module-card">
+          <h3>场景一 · 基础信息归档</h3>
+          <p>把分散在文档、截屏、笔记中的要点汇总成统一条目。适用于需要快速回顾核心定义或术语的场合。</p>
+          <span class="meta-tag">条目 · 归档</span>
+        </div>
+        <div class="module-card">
+          <h3>场景二 · 功能对照与说明</h3>
+          <p>当面临不同版本或相似功能时，列表对照能帮助厘清差异。此场景侧重逻辑分组与简短备注。</p>
+          <span class="meta-tag">对照 · 分组</span>
+        </div>
+        <div class="module-card">
+          <h3>场景三 · 索引与引用记录</h3>
+          <p>保留原始链接、日期和简短摘要，便于后续追溯。适合需要保持引用透明度的个人或协作整理。</p>
+          <span class="meta-tag">引用 · 溯源</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 常见说明 / FAQ 摘要 -->
+    <div class="faq-block" id="faq">
+      <h4>常见说明 · 基于整理经验</h4>
+      <div class="faq-item">
+        <strong>信息时效性</strong><br>
+        <span>页面内容可能随时间调整，建议以 <a href="https://zhweb--ng28.com" style="color:#3b3229;text-decoration:underline;text-underline-offset:2px;">ng28</a> 实际显示为准。归档时标注日期会有帮助。</span>
+      </div>
+      <div class="faq-item">
+        <strong>分类边界</strong><br>
+        <span>某些条目可能同时归属多个场景，可根据使用习惯灵活归并，不必严格拘泥。</span>
+      </div>
+      <div class="faq-item">
+        <strong>引用来源</strong><br>
+        <span>直接复制或转述时保留上下文，尽量附上原始地址，例如本页指向的 <a href="https://zhweb--ng28.com" style="color:#3b3229;text-decoration:underline;text-underline-offset:2px;">ng28</a> 链接。</span>
+      </div>
+    </div>
+
+    <!-- 提示框 -->
+    <div class="note-box">
+      本页为静态索引示例，不含动态查询，所有描述基于一般资料整理习惯，不构成使用建议或评价。
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <span>信息整理页面 · 仅作展示</span>
+      <span>索引参考 · 2025</span>
+    </footer>
+  </div>
+</body>
+</html>
