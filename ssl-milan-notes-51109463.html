@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于 milan.com — 简明访问指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f2f2f0;
+            color: #2b2b2b;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* hero 开场区 */
+        .hero {
+            margin: 1rem 0 2.5rem 0;
+            padding: 2.5rem 2rem;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e4e4e2;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 350;
+            letter-spacing: -0.02em;
+            color: #1f1f1e;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero .opening {
+            font-size: 1.2rem;
+            color: #4a4a48;
+            max-width: 580px;
+            margin: 0 auto;
+            font-weight: 380;
+            line-height: 1.7;
+        }
+
+        /* 卡片通用样式 */
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #e2e0dd;
+            border-radius: 18px;
+            padding: 2rem 2rem 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            color: #2c2c2a;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eae8e4;
+            padding-bottom: 0.7rem;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            color: #3b3b39;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .card li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.75rem;
+            color: #3e3e3c;
+        }
+
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0.5rem;
+            color: #9b9b96;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        /* 承接段落卡片 - 特别修饰 */
+        .context-card {
+            background-color: #fbfbfa;
+        }
+
+        .context-card p {
+            font-size: 1rem;
+        }
+
+        /* 特点列表卡片 */
+        .feature-list strong {
+            font-weight: 500;
+            color: #1e1e1c;
+        }
+
+        .feature-list li {
+            font-size: 0.98rem;
+        }
+
+        /* 场景提示卡片 - 温和提醒 */
+        .reminder-card {
+            background-color: #fafaf8;
+            border-left: 3px solid #d6d4cf;
+        }
+
+        .reminder-card p {
+            font-style: normal;
+        }
+
+        .reminder-card .tag {
+            display: inline-block;
+            background-color: #eeedea;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #5d5d59;
+            margin-right: 0.3rem;
+            margin-bottom: 0.3rem;
+            border: 1px solid #e1dfda;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #efede9;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-summary details:last-child {
+            border-bottom: none;
+        }
+
+        .faq-summary summary {
+            font-weight: 450;
+            color: #33322f;
+            cursor: pointer;
+            padding: 0.3rem 0;
+            font-size: 0.98rem;
+        }
+
+        .faq-summary summary::-webkit-details-marker {
+            color: #a8a6a0;
+        }
+
+        .faq-summary p {
+            margin-top: 0.5rem;
+            color: #4f4e4b;
+            padding-left: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* 链接样式 */
+        a {
+            color: #3b6b4f;
+            text-decoration: none;
+            border-bottom: 1px solid #c9dccf;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            color: #1e4c33;
+            border-bottom-color: #7a9f86;
+        }
+
+        /* 温和结尾区 */
+        .closing {
+            margin-top: 2.5rem;
+            padding: 1.8rem 2rem;
+            background-color: #ffffff;
+            border-radius: 18px;
+            border: 1px solid #e6e4e0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            text-align: center;
+            color: #4d4d49;
+            font-size: 0.95rem;
+        }
+
+        .closing p {
+            margin-bottom: 0.3rem;
+        }
+
+        .closing .footnote {
+            font-size: 0.85rem;
+            color: #7a7974;
+            margin-top: 0.6rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .hero {
+                padding: 1.8rem 1.2rem;
+                margin-bottom: 1.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .opening {
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 1.5rem 1.2rem 1.3rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .card h2 {
+                font-size: 1.35rem;
+            }
+
+            .closing {
+                padding: 1.2rem 1rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .card li {
+                padding-left: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 开场 -->
+    <div class="hero">
+        <h1>milan.com</h1>
+        <p class="opening">
+            一个整理过的起点。如果你正好需要了解这个域名下的内容，下面几段话或许能帮你节省一点浏览的时间。
+        </p>
+    </div>
+
+    <!-- 承接段落：简明指南 -->
+    <div class="card context-card">
+        <h2>关于这个地址</h2>
+        <p>
+            域名 <a href="https://ssl-milan.com">milan.com</a> 指向一个使用安全连接的站点。无论你是第一次输入，还是回来查找信息，都建议留意浏览器地址栏的协议标识——以 <code>https://</code> 开头，说明通讯经过加密。这是目前访问任何网站时值得留意的第一步。
+        </p>
+        <p>
+            在准备浏览之前，可以确认网络环境稳定，同时保持浏览器处于较新的版本，这样页面呈现会完整一些。以下列出几个常见的留意点，供你参考。
+        </p>
+    </div>
+
+    <!-- 特点列表卡片 -->
+    <div class="card feature-list">
+        <h2>几个常见留意点</h2>
+        <ul>
+            <li><strong>连接方式</strong> — 页面通过标准 HTTPS 传输，地址栏的小锁图标处于生效状态时，数据往来相对私密。</li>
+            <li><strong>页面结构</strong> — 内容和导航通常保持清晰的分组，主次信息之间留有适当间隔，适合快速浏览。</li>
+            <li><strong>跨设备适应</strong> — 在手机、平板或桌面端，版式会跟随屏幕宽度调整，阅读时不容易出现重叠或过小字体。</li>
+            <li><strong>链接可辨</strong> — 站内链接和站外链接在视觉上有区分，点击前可以留意一下目标地址。</li>
+            <li><strong>加载表现</strong> — 静态资源经过压缩，一般情况下载入较为流畅，但网络波动时部分元素可能延迟。</li>
+        </ul>
+    </div>
+
+    <!-- 场景 + 提示卡片 -->
+    <div class="card reminder-card">
+        <h2>访问途中</h2>
+        <p>
+            假如你正在使用公共 Wi-Fi，或者通过不熟悉的设备登录，多留意一次地址栏的拼写是有益的习惯。域名 <a href="https://ssl-milan.com">milan.com</a> 中的字母连字符与纯字母组合容易一眼带过，确认无误后再操作。
+        </p>
+        <p>
+            <span class="tag">建议</span> 如果遇到页面加载异常或者证书提示，先不要急于刷新，检查一下系统时间与网络设置，有时问题出在本地环境。
+        </p>
+        <p>
+            <span class="tag">另外</span> 部分旧版浏览器或移动端 WebView 可能对加密协议支持不完整，升级或更换浏览器通常可以解决。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 用 details 展示 -->
+    <div class="card faq-summary">
+        <h2>简略问答</h2>
+        <details>
+            <summary>这个网站主要提供什么？</summary>
+            <p>你可以通过 <a href="https://ssl-milan.com">milan.com</a> 了解与该域名相关的具体服务或信息，不同时期页面主题可能有所调整，以实际内容为准。</p>
+        </details>
+        <details>
+            <summary>为什么强调 HTTPS？</summary>
+            <p>加密连接可以防止中间人窃取或篡改传输的数据，尤其涉及表单填写或登录时，它是一个基础的安全信号。</p>
+        </details>
+        <details>
+            <summary>链接无法打开怎么办？</summary>
+            <p>先尝试清除浏览器缓存或更换网络环境。如果仍然不行，可以检查域名拼写或稍后再试，也可能是临时维护。</p>
+        </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+        <p>以上大致勾勒了访问时可能会遇到的几个侧面。网络上的信息一直在变化，保持一点耐心和观察，通常就够了。</p>
+        <p class="footnote">— 2025 · 一份安静的索引页 —</p>
+    </div>
+
+</div>
+</body>
+</html>
